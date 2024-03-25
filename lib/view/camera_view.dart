@@ -1,3 +1,8 @@
+// package for camera view
+// features: capture,
+//           zoom(manual, auto),
+//           exposure(brightness control)
+
 import 'dart:io';
 import 'dart:math';
 

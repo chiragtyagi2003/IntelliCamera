@@ -1,3 +1,6 @@
+// package to track coordinates of image
+// rotation and len orientation are used for this purpose
+
 import 'dart:io';
 import 'dart:ui';
 

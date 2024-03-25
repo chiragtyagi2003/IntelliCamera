@@ -1,3 +1,5 @@
+// Package to paint custom bounding box on detected box
+
 import 'dart:io';
 import 'dart:ui';
 import 'dart:ui' as ui;
