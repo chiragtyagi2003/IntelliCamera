@@ -4,9 +4,10 @@ import 'dart:math';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
-import 'package:path_provider/path_provider.dart';
+
 
 class CameraView extends StatefulWidget {
   CameraView(
@@ -211,6 +212,7 @@ class _CameraViewState extends State<CameraView> {
     ),
   );
 
+
   Future<void> _captureAndSaveImage() async {
     try {
       if (_controller == null || !_controller!.value.isInitialized) {
@@ -222,19 +224,14 @@ class _CameraViewState extends State<CameraView> {
       final XFile image = await _controller!.takePicture();
 
       // Save the image to device storage
-      final Directory extDir = await getApplicationDocumentsDirectory();
-      final String dirPath = '${extDir.path}/Pictures';
-      await Directory(dirPath).create(recursive: true);
-      final String filePath = '$dirPath/${DateTime.now().millisecondsSinceEpoch}.jpg';
-      final File savedImage = File(filePath);
-      await savedImage.writeAsBytes(await image.readAsBytes());
+      final result = await GallerySaver.saveImage(image.path);
 
-      // Display a message that the image has been saved
+      // Display a message indicating whether the image was saved successfully
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
           title: Text('Image Saved'),
-          content: Text('The image has been saved to $filePath'),
+          content: Text(result  != null ? 'The image has been saved to gallery.' : 'Failed to save the image.'),
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
