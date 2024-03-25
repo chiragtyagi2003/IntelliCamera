@@ -39,6 +39,9 @@ class ObjectDetectorPainter extends CustomPainter {
       );
       builder.pushStyle(
           ui.TextStyle(color: Colors.lightGreenAccent, background: background));
+
+
+      // show label to user and its confidence score
       if (detectedObject.labels.isNotEmpty) {
         final label = detectedObject.labels
             .reduce((a, b) => a.confidence > b.confidence ? a : b);

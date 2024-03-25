@@ -45,25 +45,12 @@ class _ObjectDetectorView extends State<ObjectDetectorView> {
           onCameraLensDirectionChanged: (value) => _cameraLensDirection = value,
           onCameraFeedReady: _initializeDetector,
           initialDetectionMode: DetectorViewMode.values[_mode.index],
-          onDetectorViewModeChanged: _onScreenModeChanged,
         ),
       ]),
     );
   }
 
-  void _onScreenModeChanged(DetectorViewMode mode) {
-    switch (mode) {
-      case DetectorViewMode.gallery:
-        _mode = DetectionMode.single;
-        _initializeDetector();
-        return;
 
-      case DetectorViewMode.liveFeed:
-        _mode = DetectionMode.stream;
-        _initializeDetector();
-        return;
-    }
-  }
 
   void _initializeDetector() async {
     _objectDetector?.close();
@@ -109,8 +96,6 @@ class _ObjectDetectorView extends State<ObjectDetectorView> {
         'Object:  trackingId: ${object.trackingId} - ${object.labels.map((e) => e.text)}\n\n';
       }
       _text = text;
-      // // TODO: set _customPaint to draw boundingRect on top of image
-      // _customPaint = null;
     }
     _isBusy = false;
     if (mounted) {
