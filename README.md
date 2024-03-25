@@ -1,16 +1,10 @@
-# intelligent_camera
+# IntelliCamera
 
-A new Flutter project.
+An Intelligent with the capability to auto-zoom when detecting objects.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+1. Auto-Zoom When Object Detected.
+2. Manual Zoom for users to adjust.
+3. Exposure Control
+4. Also Provides label with confidence score using a tflite model.
+   
