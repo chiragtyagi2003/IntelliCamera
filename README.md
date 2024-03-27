@@ -10,4 +10,5 @@ An Intelligent with the capability to auto-zoom when detecting objects.
 
 ## Preview
 [[Preview1]](https://youtube.com/shorts/D9sEEXh_v08?feature=share)
+[[Preview2]](https://youtube.com/shorts/sfZDSwrIbng?feature=share)
 
